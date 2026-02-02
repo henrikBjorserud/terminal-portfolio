@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terminal Portfolio</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="crt">
+    <div id="screen">
+
+      <pre id="ascii-banner" class="glow"></pre>
+
+      <section id="welcome" class="section visible">
+        <p>Welcome to my terminal portfolio.</p>
+        <p>Type <span class="hl">help</span> for available commands.</p>
+      </section>
+
+      <section id="about" class="section">
+        <h2>About Me</h2>
+        <p>I'm a developer who builds things for the web.</p>
+        <p>I care about clean code, fast interfaces, and good design.</p>
+        <p>Currently exploring systems programming and creative coding.</p>
+      </section>
+
+      <section id="projects" class="section">
+        <h2>Projects</h2>
+        <pre>
+  [01] terminal-portfolio  — this site. vanilla html/css/js, CRT vibes.
+  [02] project-alpha        — a CLI tool for batch image processing.
+  [03] project-beta         — real-time collaborative markdown editor.
+        </pre>
+      </section>
+
+      <section id="contact" class="section">
+        <h2>Contact</h2>
+        <pre>
+  email   : hello@example.com
+  github  : github.com/yourusername
+  twitter : @yourhandle
+        </pre>
+      </section>
+
+      <section id="help" class="section">
+        <h2>Commands</h2>
+        <pre>
+  about     — who I am
+  projects  — what I've built
+  contact   — how to reach me
+  clear     — reset the terminal
+  help      — show this message
+        </pre>
+      </section>
+
+      <div id="prompt-line">
+        <span class="prompt">&gt;&nbsp;</span>
+        <input id="input" type="text" autofocus autocomplete="off" spellcheck="false">
+      </div>
+
+    </div>
+  </div>
+  <script src="js/script.js"></script>
+</body>
+</html>

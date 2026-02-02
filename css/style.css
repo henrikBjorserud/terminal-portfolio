@@ -1,0 +1,142 @@
+/* ── Reset ─────────────────────────────────────────── */
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* ── Base ──────────────────────────────────────────── */
+html, body {
+  height: 100%;
+  background: #000;
+  color: #33ff33;
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 15px;
+  line-height: 1.6;
+  overflow: hidden;
+}
+
+/* ── CRT Shell ─────────────────────────────────────── */
+#crt {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Scanlines */
+#crt::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Vignette */
+#crt::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 60%, rgba(0, 0, 0, 0.65) 100%);
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* ── Screen ────────────────────────────────────────── */
+#screen {
+  width: min(900px, 92vw);
+  height: min(700px, 90vh);
+  padding: 2rem 2.5rem;
+  overflow-y: auto;
+  scrollbar-width: none;
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+  border: 1px solid #0a3a0a;
+  box-shadow:
+    inset 0 0 80px rgba(0, 255, 0, 0.04),
+    0 0 40px rgba(0, 255, 0, 0.06);
+}
+
+#screen::-webkit-scrollbar { display: none; }
+
+/* ── Phosphor Glow ─────────────────────────────────── */
+.glow {
+  text-shadow:
+    0 0 4px rgba(51, 255, 51, 0.6),
+    0 0 12px rgba(51, 255, 51, 0.25);
+}
+
+/* ── ASCII Banner ──────────────────────────────────── */
+#ascii-banner {
+  font-size: 8px;
+  line-height: 1.1;
+  color: #33ff33;
+  margin-bottom: 1.5rem;
+  white-space: pre;
+  overflow: hidden;
+}
+
+/* ── Sections ──────────────────────────────────────── */
+.section {
+  display: none;
+  margin-bottom: 1.5rem;
+}
+
+.section.visible {
+  display: block;
+}
+
+.section h2 {
+  color: #33ff33;
+  font-size: 15px;
+  font-weight: normal;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  margin-bottom: 0.6rem;
+  border-bottom: 1px solid #0a3a0a;
+  padding-bottom: 0.3rem;
+}
+
+.section pre {
+  white-space: pre-wrap;
+}
+
+.hl {
+  color: #7fff7f;
+  text-shadow: 0 0 6px rgba(51, 255, 51, 0.5);
+}
+
+/* ── Prompt ─────────────────────────────────────────── */
+#prompt-line {
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.prompt {
+  color: #33ff33;
+  flex-shrink: 0;
+}
+
+#input {
+  background: none;
+  border: none;
+  outline: none;
+  color: #33ff33;
+  font-family: inherit;
+  font-size: inherit;
+  width: 100%;
+  caret-color: #33ff33;
+}
+
+/* ── Responsive ────────────────────────────────────── */
+@media (max-width: 600px) {
+  #screen { padding: 1.2rem 1rem; }
+  #ascii-banner { font-size: 5px; }
+}
